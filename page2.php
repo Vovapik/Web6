@@ -42,12 +42,6 @@ $data = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
         </a></li>
       </ul>
       <br>
-      <img src="map.jpg" height="200" width="300" usemap="#image-map">
-      <map name="image-map">
-        <area shape="rect" coords="0,0,300,90" href="index.html" alt="Main">
-        <area shape="rect" coords="0,90,130,200" href="index.html" alt="Main">
-        <area shape="rect" coords="130,90,300,200" href="index.html" alt="Main">
-      </map>
     </div>
     <div class="center-right-footer-container">
       <div class="center-right-container">
