@@ -18,24 +18,7 @@ body, html {
     display: flex;
     flex-direction: column;
     font-family: " Harrington", Harrington;
-    background-image: url("background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.photos img {
-    display: none;
-    max-width: 80%;
-    height: auto;
-}
-.photos img:nth-child(1):target,
-.photos img:nth-child(2):target,
-.photos img:nth-child(3):target,
-.photos img:nth-child(4):target,
-.photos img:nth-child(5):target {
-    display: flex;
+    background-color: black;
 }
 
 .main-header-container {
