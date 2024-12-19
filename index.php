@@ -21,28 +21,28 @@
         <li><a href="page2.php">
           Page 2
         </a></li>
-        <li><a href="index.html">
+        <li><a href="index.php">
           Main
         </a></li>
-        <li><a href="index.html">
+        <li><a href="index.php">
           Main
         </a></li>
-        <li><a href="index.html">
+        <li><a href="index.php">
           Main
         </a></li>
-        <li><a href="index.html">
+        <li><a href="index.php">
           Main
         </a></li>
-        <li><a href="index.html">
+        <li><a href="index.php">
           Main
         </a></li>
       </ul>
       <br>
       <img src="map.jpg" height="200" width="300" usemap="#image-map">
       <map name="image-map">
-        <area shape="rect" coords="0,0,300,90" href="index.html" alt="History of tarot">
-        <area shape="rect" coords="0,90,130,200" href="index.html" alt="Major arcana">
-        <area shape="rect" coords="130,90,300,200" href="index.html" alt="Minor arcana">
+        <area shape="rect" coords="0,0,300,90" href="index.php" alt="History of tarot">
+        <area shape="rect" coords="0,90,130,200" href="index.php" alt="Major arcana">
+        <area shape="rect" coords="130,90,300,200" href="index.php" alt="Minor arcana">
       </map>
     </div>
     <div class="center-right-footer-container">
