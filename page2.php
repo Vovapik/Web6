@@ -69,40 +69,42 @@ try {
                         <div id="collapsibleContainer">
                             <?php if (!empty($data)): ?>
                                 <?php foreach ($data as $index => $entry): ?>
-                                    <div class="entry">
-                                        <button class="btn" type="button" onclick="toggleCollapse('collapse-<?php echo $index; ?>')">
-                                            <?php echo $entry['name']; ?>
-                                        </button>
-                                        <div id="collapse-<?php echo $index; ?>" class="collapse">
-                                            <?php echo $entry['text']; ?>
-                                        </div>
-                                        <button class="delete-btn" onclick="deleteEntry(<?php echo $index; ?>)">Delete</button>
-                                    </div>
-                                <?php endforeach; ?>
+    <div class="entry">
+        <button class="btn" type="button" onclick="toggleCollapse('collapse-<?php echo $entry['id']; ?>')">
+            <?php echo htmlspecialchars($entry['name']); ?>
+        </button>
+        <div id="collapse-<?php echo $entry['id']; ?>" class="collapse">
+            <?php echo htmlspecialchars($entry['text']); ?>
+        </div>
+        <button class="delete-btn" onclick="deleteEntry(<?php echo $entry['id']; ?>)">Delete</button>
+    </div>
+<?php endforeach; ?>
                             <?php else: ?>
                                 <p>No components to display.</p>
                             <?php endif; ?>
                         </div>
 
                         <script>
-                            async function deleteEntry(index) {
-                                if (confirm('Are you sure you want to delete this entry?')) {
-                                    const response = await fetch('/delete-data.php', {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json',
-                                        },
-                                        body: JSON.stringify({ index }),
-                                    });
+                            async function deleteEntry(id) {
+    if (confirm('Are you sure you want to delete this entry?')) {
+        const response = await fetch('/delete-data.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id }), // Send the correct `id`
+        });
 
-                                    if (response.ok) {
-                                        alert('Deleted successfully');
-                                        location.reload(); 
-                                    } else {
-                                        alert('Failed to delete data. Please try again.');
-                                    }
-                                }
-                            }
+        if (response.ok) {
+            alert('Deleted successfully');
+            location.reload(); // Refresh the page to show updated data
+        } else {
+            const error = await response.json();
+            alert(error.message || 'Failed to delete data.');
+        }
+    }
+}
+
                             function toggleCollapse(id) {
                                 const element = document.getElementById(id);
                                 if (element.classList.contains('show')) {
