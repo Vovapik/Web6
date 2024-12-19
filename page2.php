@@ -86,24 +86,33 @@ try {
 
                         <script>
                             async function deleteEntry(id) {
-    if (confirm('Are you sure you want to delete this entry?')) {
-        const response = await fetch('/delete-data.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id }), // Send the correct `id`
-        });
+    console.log("Deleting entry with ID:", id); // Debugging log
 
-        if (response.ok) {
-            alert('Deleted successfully');
-            location.reload(); // Refresh the page to show updated data
-        } else {
-            const error = await response.json();
-            alert(error.message || 'Failed to delete data.');
+    if (confirm('Are you sure you want to delete this entry?')) {
+        try {
+            const response = await fetch('/delete-data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }), // Send `id` in the body
+            });
+
+            if (response.ok) {
+                alert('Deleted successfully');
+                location.reload(); // Refresh the page to show updated data
+            } else {
+                const error = await response.json();
+                console.error("Delete failed:", error); // Debugging log
+                alert(error.message || 'Failed to delete data.');
+            }
+        } catch (error) {
+            console.error("Error during delete request:", error); // Debugging log
+            alert('An unexpected error occurred.');
         }
     }
 }
+
 
                             function toggleCollapse(id) {
                                 const element = document.getElementById(id);
