@@ -2,7 +2,7 @@
 $host = 'mysql.railway.internal';
 $dbname = 'railway';
 $user = 'root';
-$password = 'HuhsPeukULLWWalcIzUSahgjCiLbOwTo';
+$password = 'wkNdFhxwLmzjUdwCRJpWbjkcFUpFYIoj';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
