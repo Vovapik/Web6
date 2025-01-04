@@ -14,7 +14,7 @@ if (isset($data['id'])) {
     $host = 'mysql.railway.internal';
 $dbname = 'railway';
 $user = 'root';
-$password = 'HuhsPeukULLWWalcIzUSahgjCiLbOwTo';
+$password = 'wkNdFhxwLmzjUdwCRJpWbjkcFUpFYIoj';
 
     try {
         // Establish database connection
